@@ -1,0 +1,143 @@
+﻿@model Project2.Models.VoorstelIndienenModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("VoorstelIndienen", "Student", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Voorstel</legend>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Titel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Titel)
+            @Html.ValidationMessageFor(model => model.Titel)
+        </div>
+        
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="editor-field">
+            @* @Html.DropDownList("onderzoeksdomeinen", "--Selecteer onderzoeksdomein--")*@
+            @Html.DropDownListFor(x => x.OnderzoeksDomein1.Id, new SelectList(ViewBag.OnderzoeksDomeinen, "Id", "Naam"))
+            @Html.ValidationMessageFor(model => model.OnderzoeksDomein1)
+        </div>
+        
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="editor-field">
+            @* @Html.DropDownList("onderzoeksdomeinen", "--Selecteer onderzoeksdomein--")*@
+            @Html.DropDownListFor(x => x.OnderzoeksDomein2.Id, new SelectList(ViewBag.OnderzoeksDomeinen, "Id", "Naam"))
+            @Html.ValidationMessageFor(model => model.OnderzoeksDomein2)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Trefwoorden)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Trefwoorden)
+            @Html.ValidationMessageFor(model => model.Trefwoorden)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Context)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Context)
+            @Html.ValidationMessageFor(model => model.Context)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Onderzoeksvraag)
+            @Html.ValidationMessageFor(model => model.Onderzoeksvraag)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PlanVanAanpak)
+            @Html.ValidationMessageFor(model => model.PlanVanAanpak)
+        </div>
+        
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.ReferentieLijst)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReferentieLijst)
+            @Html.ValidationMessageFor(model => model.ReferentieLijst)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Naamcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Naamcp)
+            @Html.ValidationMessageFor(model => model.Naamcp)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Voornaamcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Voornaamcp)
+            @Html.ValidationMessageFor(model => model.Voornaamcp)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Emailcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Emailcp)
+            @Html.ValidationMessageFor(model => model.Emailcp)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Organisatiecp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Organisatiecp)
+            @Html.ValidationMessageFor(model => model.Organisatiecp)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.IsDefinitief)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsDefinitief)
+            @Html.ValidationMessageFor(model => model.IsDefinitief)
+        </div>
+
+        <div class="editor-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Status)
+            @Html.HiddenFor(model => model.Status)
+        </div>
+
+        <p>
+            <input type="submit" name="action" value="Opslaan" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

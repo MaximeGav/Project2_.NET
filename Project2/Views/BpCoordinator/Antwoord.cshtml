@@ -1,0 +1,157 @@
+﻿@model Project2.Models.AdviesGevenModel
+
+@{
+    ViewBag.Title = "Antwoord";
+}
+
+<h2>Antwoord Geven</h2>
+
+@using (Html.BeginForm(FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Voorstel</legend>
+
+        @Html.HiddenFor(model => model.Id)
+        
+        @{
+            if (!Model.Naamcp.IsEmpty() && !Model.Voornaamcp.IsEmpty() && !Model.Organisatiecp.IsEmpty() && !Model.Emailcp.IsEmpty())
+            {
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Naamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Naamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Voornaamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Voornaamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Organisatiecp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Organisatiecp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Emailcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Emailcp)
+                </div>
+    
+                <br />
+            }
+        }
+             
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Titel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titel)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein1.Naam)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein2.Naam)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Trefwoorden)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Trefwoorden)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Context)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Context)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Onderzoeksvraag)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PlanVanAanpak)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Status)
+        </div> 
+        
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Vraag)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Vraag)
+            @Html.HiddenFor(model => model.Vraag)
+        </div>
+        
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Antwoord)
+        </div>
+        <div class="display-field">
+            @Html.EditorFor(model => model.Antwoord)
+        </div>
+        
+        <p>
+            <input type="submit" name="button" value="Antwoorden" />
+        </p>
+
+    </fieldset>
+
+}
+<p>
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</p>

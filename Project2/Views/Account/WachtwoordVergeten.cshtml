@@ -1,0 +1,36 @@
+﻿@model Project2.Models.WachtwoordVergetenModel
+@{
+    ViewBag.Title = "Wachtwoord Vergeten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wachtwoord Vergeten</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <h3 class="errorMessage">@ViewBag.ErrorMessage</h3>
+}
+<section id="resetPassForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+          @Html.ValidationSummary(true)
+
+        <fieldset>
+     
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Email, "Geef uw e-mail in:")
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </li>
+            </ol>
+            <input type="submit" value="Nieuw wachtwoord genereren" />
+            
+        </fieldset>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

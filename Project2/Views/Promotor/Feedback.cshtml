@@ -1,0 +1,280 @@
+﻿@using System.Activities.Statements
+@model Project2.Models.FeedbackModel
+
+@{
+    ViewBag.Title = "Feedback Geven";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm(FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Voorstel</legend>
+        
+        @{
+            if (!Model.Naamcp.IsEmpty() && !Model.Voornaamcp.IsEmpty() && !Model.Organisatiecp.IsEmpty() && !Model.Emailcp.IsEmpty())
+            {
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Naamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Naamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Voornaamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Voornaamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Organisatiecp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Organisatiecp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Emailcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Emailcp)
+                </div>
+    
+                <br />
+            }
+        }
+             
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Titel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titel)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein1.Naam)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein2.Naam)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Trefwoorden)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Trefwoorden)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Context)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Context)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Onderzoeksvraag)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PlanVanAanpak)
+        </div>
+        
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.ReferentieLijst)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ReferentieLijst)
+        </div>
+        
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Status)
+        </div>
+    
+        <br />
+        
+        <h2>Feedback Geven</h2>
+    @{
+        string[] keuzes = {"Uitstekend", "Zeer goed", "Goed", "Matig", "Slecht"};
+        Boolean isEerste = true;
+        <p style="font-weight: bold">Duidelijkheid titel: <br /> </p>
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreTitel == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreTitel, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreTitel, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        <p style="font-weight: bold">Duidelijkheid context: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreContext == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreContext, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreContext, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+
+        }
+        <p style="font-weight: bold">Onderzoeksvraag is S.M.A.R.T.: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreSmart == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreSmart, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreSmart, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        <p style="font-weight: bold">Onderzoeksvraag is gebaseerd op reëel probleem: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreOnderzoeksvraag == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreOnderzoeksvraag, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreOnderzoeksvraag, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        <p style="font-weight: bold">Duidelijkheid bijdrage student: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreBijdrage == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreBijdrage, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreBijdrage, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        <p style="font-weight: bold">Onderwerpkeuze: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreOnderwerp == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreOnderwerp, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreOnderwerp, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        <p style="font-weight: bold">Referentielijst: <br /> </p>
+        isEerste = true;
+        foreach (var keuze in keuzes)
+        {
+            if (isEerste || Model.ScoreReferentielijst == keuze)
+            {
+                @Html.RadioButtonFor(model => model.ScoreReferentielijst, keuze, new {@class = "radio", @checked = "checked"});
+            }
+            else
+            {
+                @Html.RadioButtonFor(model => model.ScoreReferentielijst, keuze, new {@class = "radio"});
+            }
+            @Html.Raw(keuze)
+            @Html.Raw("<br />");
+            isEerste = false;
+        }
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Suggesties)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Suggesties)
+            @Html.ValidationMessageFor(model => model.Suggesties)
+        </div>
+    }
+
+        <p>
+            <input type="submit" name="button" value="Opslaan" />
+            <input type="submit" name="button" value="Goedkeuren" />
+            <input type="submit" name="button" value="Advies vragen" />
+            <input type="submit" name="button" value="Afkeuren" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

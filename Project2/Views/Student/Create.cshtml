@@ -1,0 +1,130 @@
+﻿@model Project2.Models.VoorstelIndienenModel
+
+@{
+    ViewBag.Title = "Voorstel Maken";
+}
+
+<h2>Voorstel Maken</h2>
+
+@using (Html.BeginForm("VoorstelIndienen", "Student", FormMethod.Post)) {
+    
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <fieldset>
+        <legend>Voorstel</legend>
+      
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Voornaamcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Voornaamcp)
+            @Html.ValidationMessageFor(model => model.Voornaamcp)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Naamcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Naamcp)
+            @Html.ValidationMessageFor(model => model.Naamcp)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Emailcp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Emailcp)
+            @Html.ValidationMessageFor(model => model.Emailcp)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Organisatiecp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Organisatiecp)
+            @Html.ValidationMessageFor(model => model.Organisatiecp)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Titel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Titel)
+            @Html.ValidationMessageFor(model => model.Titel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.OnderzoeksDomein1.Id, new SelectList(Model.OnderzoeksDomeinen, "Id", "Naam"))
+            @Html.ValidationMessageFor(model => model.OnderzoeksDomein1)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.OnderzoeksDomein2.Id, new SelectList(Model.OnderzoeksDomeinen, "Id", "Naam"))
+            @Html.ValidationMessageFor(model => model.OnderzoeksDomein2)
+        </div>
+       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Trefwoorden)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Trefwoorden)
+            @Html.ValidationMessageFor(model => model.Trefwoorden)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Context)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Context)
+            @Html.ValidationMessageFor(model => model.Context)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Onderzoeksvraag)
+            @Html.ValidationMessageFor(model => model.Onderzoeksvraag)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PlanVanAanpak)
+            @Html.ValidationMessageFor(model => model.PlanVanAanpak)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReferentieLijst)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReferentieLijst)
+            @Html.ValidationMessageFor(model => model.ReferentieLijst)
+        </div>
+       
+
+
+        <p>
+            <input type="submit" name="action" value="Opslaan" />
+            <input type="submit" name="action" value="Definitief Indienen" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

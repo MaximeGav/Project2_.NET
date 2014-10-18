@@ -1,0 +1,223 @@
+﻿@using System.Web.Razor.Parser.SyntaxTree
+@model Project2.Models.FeedbackModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Voorstel</legend>
+    
+    @Html.HiddenFor(model => model.Id)
+        
+    @{
+            if (!Model.Naamcp.IsEmpty() && !Model.Voornaamcp.IsEmpty() && !Model.Organisatiecp.IsEmpty() && !Model.Emailcp.IsEmpty())
+            {
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Naamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Naamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Voornaamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Voornaamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Organisatiecp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Organisatiecp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Emailcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Emailcp)
+                </div>
+    
+                <br />
+            }
+        }
+             
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Titel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titel)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein1.Naam)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein2.Naam)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Trefwoorden)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Trefwoorden)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Context)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Context)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Onderzoeksvraag)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PlanVanAanpak)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.ReferentieLijst)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ReferentieLijst)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Status)
+        </div>
+        
+    @if (!Model.ScoreBijdrage.IsEmpty() && !Model.ScoreContext.IsEmpty() && !Model.ScoreOnderwerp.IsEmpty() && !Model.ScoreOnderzoeksvraag.IsEmpty() && !Model.ScoreReferentielijst.IsEmpty() && !Model.ScoreSmart.IsEmpty() && !Model.ScoreTitel.IsEmpty())
+            {
+                <br />
+        
+                <h3>Feedback</h3>
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreTitel)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreTitel)
+                </div>
+                
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreContext)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreContext)
+                </div>
+            
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreSmart)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreSmart)
+                </div>
+            
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreOnderzoeksvraag)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreOnderzoeksvraag)
+                </div>
+            
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreBijdrage)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreBijdrage)
+                </div>
+            
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreOnderwerp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreOnderwerp)
+                </div>
+            
+                <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.ScoreReferentielijst)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ScoreReferentielijst)
+                </div>
+
+                if (!Model.Suggesties.IsEmpty())
+                {
+                    <br />
+
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Suggesties)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Suggesties)
+                </div>
+                }
+            }
+        
+    </fieldset>
+<p>
+    @if (Model.Status == "Voorstel in behandeling")
+    {
+        @Html.ActionLink("Feedback Geven", "Feedback", new { id=Model.Id })
+        <span>|</span>
+    }
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</p>

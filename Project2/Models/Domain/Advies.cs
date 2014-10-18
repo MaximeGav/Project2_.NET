@@ -1,0 +1,29 @@
+﻿using System;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.ComponentModel;
+
+namespace Project2
+{
+    public class Advies
+    {
+        public String Vraag
+        {
+            get;
+            set;
+        }
+
+        public string Antwoord
+        {
+            get;
+            set;
+        }
+
+        public int Id
+        {
+            get;
+            set;
+        }
+    }
+}

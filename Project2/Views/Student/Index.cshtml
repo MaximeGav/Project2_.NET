@@ -1,0 +1,50 @@
+﻿@model Project2.Models.Domain.Voorstel
+
+@{
+    ViewBag.Title = "HoGent - Bachelorproefapplicatie";
+}
+
+<h2>Hoofdpagina</h2>
+
+@{
+    if (Model == null)
+    {
+        <p>
+            U heeft nog geen voorstel.<br />
+            @Html.ActionLink("Voorstel aanmaken", "Create")
+        </p>
+    }
+    else
+    {
+        <table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titel)
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Titel)
+        </td>
+        <td>
+            @{
+                if (Model != null)
+                {
+                    if (!Model.IsDefinitief)
+                    {
+                        @Html.ActionLink("Aanpassen", "Edit")
+                    }
+                }
+                
+            }
+            
+            @Html.ActionLink("Details", "Details")
+        </td>
+    </tr>
+
+</table>
+    }
+}
+
+

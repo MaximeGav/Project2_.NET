@@ -1,0 +1,32 @@
+﻿@using Project2.MySqlSecurity
+@model IEnumerable<Project2.Models.Domain.Voorstel>
+
+@{
+    ViewBag.Title = "Welkom op de hoofdpagina van de bachelorproefapplicatie van HoGent";
+    ViewBag.Message = "";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Dit is de hoofdpagina van de bachelorapplicatie van HoGent ontwikkeld door groep 2 voor het opleidingsonderdeel Projecten II. <br />
+                Deze groep bestond uit volgende studenten: Matthieu De Smedt, Sandro Devos, Maxime Gaveele en Tomas Verhelst.
+            </p>
+        </div>
+    </section>
+}
+
+@{
+    if (ViewBag.Role != null)
+    {
+        if (@ViewBag.Role == "Anonymous")
+        {
+            <h2>Welkom gast!</h2>
+        }
+            
+    }
+}

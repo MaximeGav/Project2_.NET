@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Project2.Models.Domain.Voorstel">
+    <Position X="11.75" Y="0.75" Width="16" />
+    <AssociationLine Name="OnderzoeksDomein1" Type="Project2.Models.Domain.OnderzoeksDomein" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="3.718" />
+        <Point X="11.375" Y="3.718" />
+        <Point X="11.375" Y="7.562" />
+        <Point X="4" Y="7.562" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="OnderzoeksDomein2" Type="Project2.Models.Domain.OnderzoeksDomein" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.627" />
+        <Point X="11.375" Y="4.627" />
+        <Point X="11.375" Y="8.188" />
+        <Point X="4" Y="8.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.067" Y="-0.269" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAgBAIEAgAAAAYAoACKCChAEwAAIAAAAAAAAAASQgA=</HashCode>
+      <FileName>Models\Domain\Voorstel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentState" />
+      <Property Name="OnderzoeksDomein1" />
+      <Property Name="OnderzoeksDomein2" />
+      <Property Name="Feedback1" />
+      <Property Name="Advies" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Project2.Models.Domain.Gebruiker">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAASAAAAAAAAAAgAAAQAAEAEABAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\Domain\Gebruiker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.Promotor">
+    <Position X="0.5" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Promotor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.Student">
+    <Position X="5.25" Y="5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAgAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Student.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Voorstel" />
+      <Property Name="Promotor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Project2.Models.Domain.OnderzoeksDomein">
+    <Position X="1" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\OnderzoeksDomein.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.BPCoordinator">
+    <Position X="6.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\BPCoordinator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.State_pattern.GoedgekeurdMetFeedbackState">
+    <Position X="14" Y="11.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\State pattern\GoedgekeurdMetFeedbackState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.State_pattern.VoorstelGoedgekeurdState">
+    <Position X="9.5" Y="11.5" Width="3.25" />
+    <InheritanceLine Type="Project2.Models.Domain.VoorstelState" FixedFromPoint="true">
+      <Path>
+        <Point X="13.875" Y="10.151" />
+        <Point X="13.875" Y="11.125" />
+        <Point X="11.125" Y="11.125" />
+        <Point X="11.125" Y="11.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\State pattern\VoorstelGoedgekeurdState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.VoorstelInBehandelingState">
+    <Position X="17" Y="8.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\Domain\State pattern\VoorstelInBehandelingState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.VoorstelNieuwState">
+    <Position X="9.75" Y="8.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\State pattern\VoorstelNieuwState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.VoorstelState">
+    <Position X="13.5" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACEAAAAAAAAAABAAgAAQAACAAEAAAAAAAAAE=</HashCode>
+      <FileName>Models\Domain\State pattern\VoorstelState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Models.Domain.Feedback">
+    <Position X="24.75" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>BAACBAAAAAAQAJACAAAAAAAAQAAAAAAABAAAAAAAAAI=</HashCode>
+      <FileName>Models\Domain\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project2.Advies">
+    <Position X="21.75" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Advies.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,46 @@
+﻿@using Project2.Models.DAL
+@model IEnumerable<Project2.Models.Domain.Voorstel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Alle voorstellen van uw studenten</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titel)
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+    @{
+   int i=0;
+   }
+@foreach (var item in Model) {
+    
+  
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titel)
+        </td>
+        <td>
+            @ViewBag.studenten[i].VolledigeNaam
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.id })
+        </td>
+    </tr>
+    i++;
+}
+
+</table>

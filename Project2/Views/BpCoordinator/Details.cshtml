@@ -1,0 +1,159 @@
+﻿@using System.Web.Razor.Parser.SyntaxTree
+@model Project2.Models.AdviesVragenModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Voorstel</legend>
+    
+    @Html.HiddenFor(model => model.Id)
+        
+    @{
+            if (!Model.Naamcp.IsEmpty() && !Model.Voornaamcp.IsEmpty() && !Model.Organisatiecp.IsEmpty() && !Model.Emailcp.IsEmpty())
+            {
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Naamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Naamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Voornaamcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Voornaamcp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Organisatiecp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Organisatiecp)
+                </div>
+    
+                <br />
+        
+                <div class="display-label" style="font-weight: bold">
+                    @Html.DisplayNameFor(model => model.Emailcp)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Emailcp)
+                </div>
+    
+                <br />
+            }
+        }
+             
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Titel)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titel)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein1)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein1.Naam)
+        </div>
+    
+        <br />
+        
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.OnderzoeksDomein2)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.OnderzoeksDomein2.Naam)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Trefwoorden)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Trefwoorden)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Context)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Context)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Onderzoeksvraag)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Onderzoeksvraag)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.PlanVanAanpak)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PlanVanAanpak)
+        </div>
+    
+        <br />
+
+        <div class="display-label" style="font-weight: bold">
+            @Html.DisplayNameFor(model => model.Status)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Status)
+        </div> 
+        
+        @if (Model.Vraag != null)
+        {
+            <br />
+
+            <div class="display-label" style="font-weight: bold">
+                @Html.DisplayNameFor(model => model.Vraag)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Vraag)
+            </div>
+        }
+    
+        @if (Model.Antwoord != null)
+        {
+            <br />
+
+            <div class="display-label" style="font-weight: bold">
+                @Html.DisplayNameFor(model => model.Antwoord)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Antwoord)
+            </div>
+        }
+                 
+        
+</fieldset>
+<p>
+    @if (Model.Status == "Advies BPC")
+    {
+        @Html.ActionLink("Antwoord", "Antwoord", new { id=Model.Id })
+        <span>|</span>
+    }
+    @Html.ActionLink("Terug naar de hoofdpagina", "Index")
+</p>
